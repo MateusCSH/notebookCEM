@@ -5,6 +5,8 @@ import plotly.graph_objects as go
 from datetime import datetime as dt
 from Notebook_aux import format_timedelta, transformar_horas
 
+import plotly.graph_objects as go
+
 #data_pre['DATA INICIAL'] = pd.to_datetime(data_pre['DATA INICIAL'])
 #data_pre['DATA FINAL'] = pd.to_datetime(data_pre['DATA FINAL'])
 
@@ -46,7 +48,26 @@ if up is not None:
 
         
         st.markdown(f'<div class="note"> <span>TOTAL HORAS ACUMULADO</span> <span class = "value">{formatted_total}</span></div>', unsafe_allow_html=True)
-        
+
+
+
+        maq = st.selectbox('Escolha a máquina desejada', (sorted(df['Máquina'].unique())))
+
+        maq_select = df.query('@maq == Máquina')    
+        hrs_selec_maq = transformar_horas(maq_select)   # Pega as horas da pessoa
+        tot_hrs_selec_maq = hrs_selec_maq.sum()         # Soma as horas da pessoa
+        percent = (tot_hrs_selec_maq / total_sum) * 100 
+
+        fig = go.Figure(go.Indicator(
+                mode="gauge+number",    #gráfico de gauge (ou medidor) + número
+                value=percent,
+                title={'text': "Percentual de Horas utilização"},
+                gauge={'axis': {'range': [None, 100]}}, #Define as configurações do gauge. Nesse caso, estamos definindo a escala do gauge para ir de 0 a 100.
+                domain={'x': [0, 1], 'y': [0, 1]}   #Define a área do gráfico que será ocupada pelo gauge. Nesse caso, estamos definindo que o gauge ocupará toda a área do gráfico (x e y vão de 0 a 1).
+            ))
+
+        st.plotly_chart(fig)
+       
 
 
 
@@ -69,7 +90,7 @@ if up is not None:
             elif note_selec.loc[i,'Periodo'] == '5º Período':
                 p5 = p5+1
 
-        st.markdown('Quantidade de pessoa por período')
+        st.markdown('<div class = "my_title">QUANTIDADE DE USUÁRIOS POR PERÍODO</div>', unsafe_allow_html=True)
         col1, col2, col3, col4, col5 = st.columns(5)
       
         
@@ -96,9 +117,26 @@ if up is not None:
             op = [p1,p2,p3,p4,p5]
             maximo = max(op, key=int)
             st.subheader(maximo)
+
+        sele_per = st.selectbox('Escolha o período', (sorted(df['Periodo'].unique())))
+        peri_select = df.query('@sele_per == Periodo')
+
+        soma_peri = len(peri_select)
+ 
+        percent_peri = (soma_peri/len(df['Periodo'])) * 100
+
+        
             
 
+        fig = go.Figure(go.Indicator(
+                mode="gauge+number",    #gráfico de gauge (ou medidor) + número
+                value=percent_peri,
+                title={'text': "Percentual de utilização por período"},
+                gauge={'axis': {'range': [None, 100]}}, #Define as configurações do gauge. Nesse caso, estamos definindo a escala do gauge para ir de 0 a 100.
+                domain={'x': [0, 1], 'y': [0, 1]}   #Define a área do gráfico que será ocupada pelo gauge. Nesse caso, estamos definindo que o gauge ocupará toda a área do gráfico (x e y vão de 0 a 1).
+            ))
 
+        st.plotly_chart(fig)
 
 
     
