@@ -106,9 +106,7 @@ if up is not None:
         bar, inf, pizza = st.tabs(['BARRAS','INFORMAÇÕES','PIZZA'])
         
         with bar:
-            st.info('Gráfico de barras')
             st.subheader('Gráfico de horas por utilização')
-            grap_bar(df_select, 'Motivo','Horas')
             st.info('Gráfico horizontal')
             grap_plotly(df_select, 'Horas','Motivo')
 
