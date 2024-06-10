@@ -1,57 +1,43 @@
 
-
-.note{
+.note{    
     color: white;
-
-    align-items: center;
+    border-radius: 15px;
     text-align: center;
+    margin: 10px;
+    padding: 5% 5% 5% 5%;
+    font-weight: bold;
+    
+    /*Ajustou (2 linhas ao invez de 1)*/
     display: flex;
     flex-direction: column;
-    margin: 10px;
-    /*border: solid 2px;*/
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: large;
-    
+
+
+    text-align: center;
 }
 
 .note:hover{
-    background-image: linear-gradient(45deg, #1e9dad, #11d399, #5bf502);
+    color: black;
+    background-image: linear-gradient(45deg, #97ccc8,#24eedd, #2174f1);   /*usado para criar um gradiente linear como imagem de fundo para um elemento.*/
     text-align: center;
-    font-size: large;
 }
 
 .note span.value{
     color: white;
-}
-
-.note:active{
-    background-image: linear-gradient(90deg, #781fa1, #490a74, #22044b);
-}
-
-
-
-.titulo{
-    color: white;
-
-    align-items: center;
+    font-size: 30px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
+}
+
+.note span.value:hover{
+    color: black;
+}
+
+.my_title{
+    color: black;
+    background-color: yellow;
     font-weight: bold;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
 
 }
-.titulo::before{
-    content: '';
-    margin: 10px;
-}
 
-.titulo::after{
-    content: '';
-    margin: 10px;
-}
-
-
-.titulo:hover{
-    background-image: linear-gradient(90deg, #781fa1, #490a74, #22044b);
-}
