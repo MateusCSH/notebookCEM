@@ -47,7 +47,7 @@ if up is not None:
         formatted_total = format_timedelta(total_sum)   # Retorna conversão h:m         
 
         
-        st.markdown(f'<div class="note"> <span>TOTAL HORAS ACUMULADO</span> <span class = "value">{formatted_total}</span></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="note"> <span>TOTAL HORAS ACUMULADA</span> <span class = "value">{formatted_total}</span></div>', unsafe_allow_html=True)
 
 
 
@@ -143,3 +143,5 @@ if up is not None:
 
 else:
     st.warning('Faça o upload do arquivo de notebook')
+
+    st.markdown(f'<div class = "meu_meu"> <span>OBS: Arquivo deve ser em formato</span> <span class = "com_valor"> .CSV </span></div>', unsafe_allow_html=True)
