@@ -179,11 +179,10 @@ if up is not None:
     #df_select = df[df['Nome']==name]
 
 else:
-    st.warning('Para que consigamos mostrar o relatório necessita-se subir o arquivo')
+        
     c = 'Browse files'
-    st.caption(f'\nAo lado direito Clique em :blue[{c}] e selecione o arquivo desejado.')
-    st.caption('O arquivo deve ser no formato :red[CSV]!')
 
     st.markdown(f'<div class = "sem_arquivo"> <span>Para que consigamos mostrar o relatório necessita-se subir o arquivo em</span> <span class = "com_valor">{c} <span></span> </div>', unsafe_allow_html=True)
     st.markdown(f'<div class = "sem_arquivo"> <span>OBS: Arquivo deve ser em formato</span> <span class = "com_valor"> .CSV <span></span> </div>', unsafe_allow_html=True)
-
+    
+    st.toast('ESPERANDO ARQUIVO', icon='❗')
