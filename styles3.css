@@ -41,10 +41,34 @@
 
 /*BOTÃO BROWSE FILLES no intervalo em que o mause fica em cima*/
 .st-emotion-cache-hc3laj:hover{
-    box-shadow: 0 0 0 5px #cc00ff60;
+    /* box-shadow: 0 0 0 5px #cc00ff60; */
+    box-shadow: none;
     color: #ffffff;
-    transform: translate3d(5px, 35px, 0px) perspective(95px) rotateY(-10deg) translateY(-10px);
+    /* transform: translate3d(5px, 35px, 0px) perspective(95px) rotateY(-10deg) translateY(-10px); */
     transition: 1s;
+    animation: browse_files 2s linear infinite;
+}
+
+@keyframes browse_files{
+    from, to{
+        border: solid 5px #13d1d1;
+    }
+
+    25%{
+        border: solid 5px #13d182;
+        transform: rotateZ(7deg);
+    }
+
+    50%{
+        border: solid 5px #13d13c;
+        transform: rotateZ(0deg);
+    }
+
+    75%{
+        transform: rotateZ(-7deg);
+    }
+
+    
 }
 
 
@@ -105,8 +129,7 @@
     background-image: linear-gradient(45deg, #13d1d1, #20c420, #88ff00);
     scale: 105%;
     transform: translate3d(0px, 5px, 0px);
-    transition: 1s;
-    
+    transition: 1s;    
 }
 
 @keyframes tofly{
