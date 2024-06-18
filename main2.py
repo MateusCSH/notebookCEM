@@ -184,5 +184,7 @@ else:
 
     st.markdown(f'<div class = "sem_arquivo"> <span>Para que consigamos mostrar o relatório necessita-se subir o arquivo em</span> <span class = "com_valor">{c} <span></span> </div>', unsafe_allow_html=True)
     st.markdown(f'<div class = "sem_arquivo"> <span>OBS: Arquivo deve ser em formato</span> <span class = "com_valor"> .CSV <span></span> </div>', unsafe_allow_html=True)
+
+    st.text('Por simbolo da engenharia (engrenagem), e por para ficar rodando')
     
     st.toast('ESPERANDO ARQUIVO', icon='❗')
