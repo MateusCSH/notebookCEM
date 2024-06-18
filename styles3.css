@@ -1,4 +1,22 @@
+/* IMAGEM (TENTAR POR UMA ENGRENAGEM RODANDO COM AS PALAVRAS EM SICRONIA) */
+.st-emotion-cache-1v0mbdj.e115fcil1:hover{
+    animation: move_img 7s linear infinite;
+}
+@keyframes move_img{
+    from, to{
+        transform: rotateZ(0deg);
+    }
 
+    25%{
+        transform: rotateZ(45deg);
+    }
+    50%{
+        transform: rotateZ(0deg);
+    }
+    75%{
+        transform: rotateZ(-45deg);
+    }
+}
 
 .st-emotion-cache-xwtqgq.e1b2p2ww15{
     background-color: rgb(52, 56, 61);
