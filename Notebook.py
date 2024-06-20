@@ -45,9 +45,13 @@ if up is not None:
         total = transformar_horas(note_selec)
         total_sum = total.sum()
         formatted_total = format_timedelta(total_sum)   # Retorna conversão h:m         
+        qtd_pessoas = len(note_selec)
 
-        
-        st.markdown(f'<div class="note"> <span>TOTAL HORAS ACUMULADA</span> <span class = "value">{formatted_total}</span></div>', unsafe_allow_html=True)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(f'<div class="note"> <span>TOTAL HORAS ACUMULADA</span> <span class = "value">{formatted_total}</span></div>', unsafe_allow_html=True)
+        with col2:
+            st.markdown(f'<div class="note"> <span>QUANTIDADE DE PESSOAS</span> <span class = "value">{qtd_pessoas}</span></div>', unsafe_allow_html=True)
 
 
 
@@ -122,7 +126,20 @@ if up is not None:
         peri_select = df.query('@sele_per == Periodo')
 
         soma_peri = len(peri_select)
- 
+
+
+        
+        hrs_por_periodo = transformar_horas(peri_select)   # Pega as horas da pessoa
+        tot_hrs_periodo = hrs_por_periodo.sum()         # Soma as horas da pessoa
+        tot_hrs_periodo_formatado = format_timedelta(tot_hrs_periodo)   # Retorna conversão h:m 
+
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(f'<div class="note"><span>Quantidade de pessoas</span><span class="value">{soma_peri}</span> </div>', unsafe_allow_html=True)
+        with col2:
+            st.markdown(f'<div class="note"><span>Quantidade de horas</span><span class="value">{tot_hrs_periodo_formatado}</span></div>', unsafe_allow_html=True)
+
+
         percent_peri = (soma_peri/len(df['Periodo'])) * 100
 
         
