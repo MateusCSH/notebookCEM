@@ -12,6 +12,9 @@ from Notebook_aux import format_timedelta, transformar_horas
 #pip freeze > .\requirements.txt
 # pip install -r .\requirements.txt
 
+#data_pre['DATA INICIAL'] = pd.to_datetime(data_pre['DATA INICIAL'])
+#data_pre['DATA FINAL'] = pd.to_datetime(data_pre['DATA FINAL'])
+
 with open("stylenote.css") as f:
     css = f.read()
 
