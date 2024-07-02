@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px
-from service.grap import grap_bar
 from service.grapplotly import grap_plotly
 from service.piegrap import pie_grap
 import plotly.graph_objects as go
